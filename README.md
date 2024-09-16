@@ -1,4 +1,4 @@
-# ![SoneiumDomains](https://soneium.domains/logos/soneium-domains-logo.svg) SoneiumDomains JS SDK
+# <img src="https://soneium.domains/logos/soneium-domains-logo.svg" width="44" height="44" /> SoneiumDomains JS SDK
 
 The ultimate Soneium Domains javascript library, with [viem](https://github.com/wagmi-dev/viem) under the hood.
 
