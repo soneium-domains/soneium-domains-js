@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,12 +14,12 @@ Gets the names for an address from the subgraph.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getNamesForAddress } from '@ensdomains/ensjs/subgraph'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getNamesForAddress } from '@soneium-domains/js/subgraph'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
 const result = await getNamesForAddress(client, {

@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,16 +14,16 @@ Sets the fuses for a name as the parent.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { setChildFuses } from '@ensdomains/ensjs/wallet'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { setChildFuses } from '@soneium-domains/js/wallet'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 })
 const hash = await setChildFuses(wallet, {
-  name: 'sub.ens.eth',
+  name: 'sub.sns.son',
   fuses: {
     parent: {
       named: ['PARENT_CANNOT_CONTROl'],

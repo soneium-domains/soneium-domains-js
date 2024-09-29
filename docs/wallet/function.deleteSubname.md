@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,16 +14,16 @@ Deletes a subname
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { deleteSubname } from '@ensdomains/ensjs/wallet'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { deleteSubname } from '@soneium-domains/js/wallet'
 
 const wallet = createWalletClient({
-  chain: mainnetWithEns,
+  chain: soneiumMinatoWithEns,
   transport: custom(window.ethereum),
 })
 const hash = await deleteSubname(wallet, {
-  name: 'sub.ens.eth',
+  name: 'sub.sns.son',
   contract: 'registry',
 })
 // 0x...

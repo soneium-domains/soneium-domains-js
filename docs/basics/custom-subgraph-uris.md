@@ -5,14 +5,14 @@ Keep in mind though that you can only use custom URIs if not using the default e
 
 ```ts
 import { http, createClient } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getSubgraphRecords } from '@ensdomains/ensjs/subgraph'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getSubgraphRecords } from '@soneium-domains/js/subgraph'
 
-const mainnetWithEns = addEnsContracts(mainnet)
+const soneiumMinatoWithEns = addEnsContracts(soneiumMinato)
 
 const chain = {
-  ...mainnetWithEns,
+  ...soneiumMinatoWithEns,
   subgraphs: {
     ens: {
       url: 'http://localhost:8000/subgraphs/name/ensdomains/ens',
@@ -25,5 +25,5 @@ const client = createClient({
   transport: http(),
 })
 
-const subgraphRecords = await getSubgraphRecords(client, { name: 'ens.eth' })
+const subgraphRecords = await getSubgraphRecords(client, { name: 'sns.son' })
 ```

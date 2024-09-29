@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,15 +14,15 @@ Gets the content hash record for a name
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getContentHashRecord } from '@ensdomains/ensjs/public'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getContentHashRecord } from '@soneium-domains/js/public'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
-const result = await getContentHashRecord(client, { name: 'ens.eth' })
+const result = await getContentHashRecord(client, { name: 'sns.son' })
 // { protocolType: 'ipfs', decoded: 'k51qzi5uqu5djdczd6zw0grmo23j2vkj9uzvujencg15s5rlkq0ss4ivll8wqw' }
 ```
 

@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,15 +14,15 @@ Gets an address record for a name and specified coin
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getAddressRecord } from '@ensdomains/ensjs/public'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getAddressRecord } from '@soneium-domains/js/public'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
-const result = await getAddressRecord(client, { name: 'ens.eth', coin: 'ETH' })
+const result = await getAddressRecord(client, { name: 'sns.son', coin: 'ETH' })
 // { id: 60, name: 'ETH , value: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7' }
 ```
 

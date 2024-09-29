@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,11 +14,11 @@ Extends the viem client with ENS wallet actions
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const clientWithEns = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 ```

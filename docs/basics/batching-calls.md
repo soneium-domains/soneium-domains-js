@@ -8,18 +8,18 @@ colliding with viem's native batching. If using batch outside of the client thou
 
 ```ts
 import { http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { createEnsPublicClient } from '@ensdomains/ensjs'
-import { getAddressRecord, getTextRecord } from '@ensdomains/ensjs/public'
+import { soneiumMinato } from 'viem/chains'
+import { createEnsPublicClient } from '@soneium-domains/js'
+import { getAddressRecord, getTextRecord } from '@soneium-domains/js/public'
 
 const client = createEnsPublicClient({
-  chain: mainnet,
+  chain: soneiumMinato,
   transport: http(),
 })
 
 const [ethAddress, twitterUsername] = client.ensBatch(
-  getAddressRecord.batch({ name: 'ens.eth' }),
-  getTextRecord.batch({ name: 'ens.eth', key: 'com.twitter' }),
+  getAddressRecord.batch({ name: 'sns.son' }),
+  getTextRecord.batch({ name: 'sns.son', key: 'com.twitter' }),
 )
 /* 
   [
@@ -37,23 +37,23 @@ const [ethAddress, twitterUsername] = client.ensBatch(
 
 ```ts
 import { http, createClient } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
 import {
   batch,
   getAddressRecord,
   getTextRecord,
-} from '@ensdomains/ensjs/public'
+} from '@soneium-domains/js/public'
 
 const client = createClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
 
 const [ethAddress, twitterUsername] = batch(
   client,
-  getAddressRecord.batch({ name: 'ens.eth' }),
-  getTextRecord.batch({ name: 'ens.eth', key: 'com.twitter' }),
+  getAddressRecord.batch({ name: 'sns.son' }),
+  getTextRecord.batch({ name: 'sns.son', key: 'com.twitter' }),
 )
 /* 
   [

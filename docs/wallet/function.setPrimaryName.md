@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,16 +14,16 @@ Sets a primary name for an address.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { setPrimaryName } from '@ensdomains/ensjs/wallet'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { setPrimaryName } from '@soneium-domains/js/wallet'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 })
 const hash = await setPrimaryName(wallet, {
-  name: 'ens.eth',
+  name: 'sns.son',
 })
 // 0x...
 ```

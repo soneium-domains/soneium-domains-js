@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,16 +14,16 @@ Gets DNS import data, used for `importDnsName()`
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getDnsImportData } from '@ensdomains/ensjs/dns'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getDnsImportData } from '@soneium-domains/js/dns'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
 const data = await getDnsImportData(client, {
-  name: 'example.eth',
+  name: 'example.son',
 })
 ```
 

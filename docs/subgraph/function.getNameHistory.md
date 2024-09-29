@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,15 +14,15 @@ Gets the history of a name from the subgraph.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getNameHistory } from '@ensdomains/ensjs/subgraph'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getNameHistory } from '@soneium-domains/js/subgraph'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
-const result = await getNameHistory(client, { name: 'ens.eth' })
+const result = await getNameHistory(client, { name: 'sns.son' })
 ```
 
 ## Parameters

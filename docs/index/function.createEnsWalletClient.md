@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,11 +14,11 @@ Creates an ENS Wallet Client with a given [Transport](https://viem.sh/docs/clien
 
 ```ts
 import { custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { createEnsWalletClient } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { createEnsWalletClient } from '@soneium-domains/js'
 
 const client = createEnsWalletClient({
-  chain: mainnet,
+  chain: soneiumMinato,
   transport: custom(window.ethereum),
 })
 ```
@@ -51,15 +51,15 @@ Clears the records for a name on a resolver.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const hash = await wallet.clearRecords({
-  name: 'ens.eth',
+  name: 'sns.son',
   resolverAddress: '0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41',
 })
 // 0x...
@@ -87,17 +87,17 @@ Commits a name to be registered
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
-import { randomSecret } from '@ensdomains/ensjs/utils'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
+import { randomSecret } from '@soneium-domains/js/utils'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const secret = randomSecret()
 const hash = await wallet.commitName({
-  name: 'example.eth',
+  name: 'example.son',
   owner: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7',
   duration: 31536000, // 1 year
   secret,
@@ -127,15 +127,15 @@ Creates a subname
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const hash = await wallet.createSubname({
-  name: 'sub.ens.eth',
+  name: 'sub.sns.son',
   owner: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7',
   contract: 'registry',
 })
@@ -164,15 +164,15 @@ Deletes a subname
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const hash = await wallet.deleteSubname({
-  name: 'sub.ens.eth',
+  name: 'sub.sns.son',
   contract: 'registry',
 })
 // 0x...
@@ -200,26 +200,26 @@ Registers a name on ENS
 
 ```ts
 import { createPublicClient, createWalletClient, http, custom } from 'viem'
-import { mainnet } from 'viem/chains'
+import { soneiumMinato } from 'viem/chains'
 import {
   addEnsContracts,
   ensPublicActions,
   ensWalletActions,
-} from '@ensdomains/ensjs'
-import { randomSecret } from '@ensdomains/ensjs/utils'
+} from '@soneium-domains/js'
+import { randomSecret } from '@soneium-domains/js/utils'
 
-const mainnetWithEns = addEnsContracts(mainnet)
+const soneiumMinatoWithEns = addEnsContracts(soneiumMinato)
 const client = createPublicClient({
-  chain: mainnetWithEns,
+  chain: soneiumMinatoWithEns,
   transport: http(),
 }).extend(ensPublicActions)
 const wallet = createWalletClient({
-  chain: mainnetWithEns,
+  chain: soneiumMinatoWithEns,
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const secret = randomSecret()
 const params = {
-  name: 'example.eth',
+  name: 'example.son',
   owner: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7',
   duration: 31536000, // 1 year
   secret,
@@ -260,31 +260,31 @@ Renews a name or names for a specified duration.
 
 ```ts
 import { createPublicClient, createWalletClient, http, custom } from 'viem'
-import { mainnet } from 'viem/chains'
+import { soneiumMinato } from 'viem/chains'
 import {
   addEnsContracts,
   ensPublicActions,
   ensWalletActions,
-} from '@ensdomains/ensjs'
+} from '@soneium-domains/js'
 
-const mainnetWithEns = addEnsContracts(mainnet)
+const soneiumMinatoWithEns = addEnsContracts(soneiumMinato)
 const client = createPublicClient({
-  chain: mainnetWithEns,
+  chain: soneiumMinatoWithEns,
   transport: http(),
 }).extend(ensPublicActions)
 const wallet = createWalletClient({
-  chain: mainnetWithEns,
+  chain: soneiumMinatoWithEns,
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 
 const duration = 31536000 // 1 year
 const { base, premium } = await client.getPrice({
-  nameOrNames: 'example.eth',
+  nameOrNames: 'example.son',
   duration,
 })
 const value = ((base + premium) * 110n) / 100n // add 10% to the price for buffer
 const hash = await wallet.renewNames({
-  nameOrNames: 'example.eth',
+  nameOrNames: 'example.son',
   duration,
   value,
 })
@@ -314,18 +314,18 @@ Sets the ABI for a name on a resolver.
 ```ts
 import abi from './abi.json'
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
-import { encodeAbi } from '@ensdomains/ensjs/utils'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
+import { encodeAbi } from '@soneium-domains/js/utils'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 
 const encodedAbi = await encodeAbi({ encodeAs: 'json', abi })
 const hash = await wallet.setAbiRecord({
-  name: 'ens.eth',
+  name: 'sns.son',
   encodedAbi,
   resolverAddress: '0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41',
 })
@@ -354,15 +354,15 @@ Sets an address record for a name on a resolver.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const hash = await wallet.setAddressRecord({
-  name: 'ens.eth',
+  name: 'sns.son',
   coin: 'ETH',
   value: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7',
   resolverAddress: '0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41',
@@ -392,15 +392,15 @@ Sets the fuses for a name as the parent.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const hash = await wallet.setChildFuses({
-  name: 'sub.ens.eth',
+  name: 'sub.sns.son',
   fuses: {
     parent: {
       named: ['PARENT_CANNOT_CONTROl'],
@@ -432,15 +432,15 @@ Sets the content hash record for a name on a resolver.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const hash = await wallet.setContentHashRecord({
-  name: 'ens.eth',
+  name: 'sns.son',
   value:
     'ipns://k51qzi5uqu5djdczd6zw0grmo23j2vkj9uzvujencg15s5rlkq0ss4ivll8wqw',
   resolverAddress: '0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41',
@@ -470,15 +470,15 @@ Sets the fuses for a name.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const hash = await wallet.setFuses({
-  name: 'sub.ens.eth',
+  name: 'sub.sns.son',
   fuses: {
     named: ['CANNOT_TRANSFER'],
   },
@@ -508,15 +508,15 @@ Sets a primary name for an address.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const hash = await wallet.setPrimaryName({
-  name: 'ens.eth',
+  name: 'sns.son',
 })
 // 0x...
 ```
@@ -543,15 +543,15 @@ Sets multiple records for a name on a resolver.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const hash = await wallet.setRecords({
-  name: 'ens.eth',
+  name: 'sns.son',
   coins: [
     {
       coin: 'ETH',
@@ -586,15 +586,15 @@ Sets a resolver for a name.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const hash = await wallet.setResolver({
-  name: 'ens.eth',
+  name: 'sns.son',
   contract: 'registry',
   resolverAddress: '0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41',
 })
@@ -623,15 +623,15 @@ Sets a text record for a name on a resolver.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const hash = await wallet.setTextRecord({
-  name: 'ens.eth',
+  name: 'sns.son',
   key: 'foo',
   value: 'bar',
   resolverAddress: '0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41',
@@ -661,15 +661,15 @@ Transfers a name to a new owner.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const hash = await wallet.transferName({
-  name: 'ens.eth',
+  name: 'sns.son',
   newOwnerAddress: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7',
   contract: 'registry',
 })
@@ -698,15 +698,15 @@ Unwraps a name.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const hash = await wallet.unwrapName({
-  name: 'example.eth',
+  name: 'example.son',
   newOwnerAddress: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7',
   newRegistrantAddress: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7',
 })
@@ -741,15 +741,15 @@ Wraps a name.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensWalletActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensWalletActions } from '@soneium-domains/js'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 }).extend(ensWalletActions)
 const hash = await wallet.wrapName({
-  name: 'ens.eth',
+  name: 'sns.son',
   newOwnerAddress: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7',
 })
 // 0x...

@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,16 +14,16 @@ Sets multiple records for a name on a resolver.
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { setRecords } from '@ensdomains/ensjs/wallet'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { setRecords } from '@soneium-domains/js/wallet'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 })
 const hash = await setRecords(wallet, {
-  name: 'ens.eth',
+  name: 'sns.son',
   coins: [
     {
       coin: 'ETH',

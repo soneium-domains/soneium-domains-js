@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,16 +14,16 @@ Gets arbitrary records for a name
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getRecords } from '@ensdomains/ensjs/public'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getRecords } from '@soneium-domains/js/public'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
 const result = await getRecords(client, {
-  name: 'ens.eth',
+  name: 'sns.son',
   records: {
     texts: ['com.twitter', 'com.github'],
     coins: ['ETH'],

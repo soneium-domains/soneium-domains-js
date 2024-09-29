@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,29 +14,29 @@ Renews a name or names for a specified duration.
 
 ```ts
 import { createPublicClient, createWalletClient, http, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getPrice } from '@ensdomains/ensjs/public'
-import { renewNames } from '@ensdomains/ensjs/wallet'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getPrice } from '@soneium-domains/js/public'
+import { renewNames } from '@soneium-domains/js/wallet'
 
-const mainnetWithEns = addEnsContracts(mainnet)
+const soneiumMinatoWithEns = addEnsContracts(soneiumMinato)
 const client = createPublicClient({
-  chain: mainnetWithEns,
+  chain: soneiumMinatoWithEns,
   transport: http(),
 })
 const wallet = createWalletClient({
-  chain: mainnetWithEns,
+  chain: soneiumMinatoWithEns,
   transport: custom(window.ethereum),
 })
 
 const duration = 31536000 // 1 year
 const { base, premium } = await getPrice(wallet, {
-  nameOrNames: 'example.eth',
+  nameOrNames: 'example.son',
   duration,
 })
 const value = ((base + premium) * 110n) / 100n // add 10% to the price for buffer
 const hash = await renewNames(wallet, {
-  nameOrNames: 'example.eth',
+  nameOrNames: 'example.son',
   duration,
   value,
 })

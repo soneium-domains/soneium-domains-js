@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,11 +14,11 @@ Creates a ENS Public Client with a given [Transport](https://viem.sh/docs/client
 
 ```ts
 import { http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { createEnsPublicClient } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { createEnsPublicClient } from '@soneium-domains/js'
 
 const client = createEnsPublicClient({
-  chain: mainnet,
+  chain: soneiumMinato,
   transport: http(),
 })
 ```
@@ -50,21 +50,21 @@ Batches multiple read functions into a single call.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
+import { soneiumMinato } from 'viem/chains'
 import {
   addEnsContracts,
   ensPublicActions,
   getTextRecord,
   getAddressRecord,
-} from '@ensdomains/ensjs'
+} from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensPublicActions)
 const result = await client.ensBatch(
-  getTextRecord.batch({ name: 'ens.eth', key: 'com.twitter' }),
-  getAddressRecord.batch({ name: 'ens.eth', coin: 'ETH' }),
+  getTextRecord.batch({ name: 'sns.son', key: 'com.twitter' }),
+  getAddressRecord.batch({ name: 'sns.son', coin: 'ETH' }),
 )
 // ['ensdomains', { id: 60, name: 'ETH', value: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7 }]
 ```
@@ -97,14 +97,14 @@ Gets the ABI record for a name
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensPublicActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensPublicActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensPublicActions)
-const result = await client.getAbiRecord({ name: 'ens.eth' })
+const result = await client.getAbiRecord({ name: 'sns.son' })
 // TODO: real example
 ```
 
@@ -130,14 +130,14 @@ Gets an address record for a name and specified coin
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensPublicActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensPublicActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensPublicActions)
-const result = await client.getAddressRecord({ name: 'ens.eth', coin: 'ETH' })
+const result = await client.getAddressRecord({ name: 'sns.son', coin: 'ETH' })
 // { id: 60, name: 'ETH , value: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7' }
 ```
 
@@ -163,14 +163,14 @@ Gets the availability of a name to register
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensPublicActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensPublicActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensPublicActions)
-const result = await client.getAvailable({ name: 'ens.eth' })
+const result = await client.getAvailable({ name: 'sns.son' })
 // false
 ```
 
@@ -196,14 +196,14 @@ Gets the content hash record for a name
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensPublicActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensPublicActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensPublicActions)
-const result = await client.getContentHashRecord({ name: 'ens.eth' })
+const result = await client.getContentHashRecord({ name: 'sns.son' })
 // { protocolType: 'ipfs', decoded: 'k51qzi5uqu5djdczd6zw0grmo23j2vkj9uzvujencg15s5rlkq0ss4ivll8wqw' }
 ```
 
@@ -229,17 +229,17 @@ Gets the full name for a name with unknown labels from the subgraph.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensSubgraphActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensSubgraphActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensSubgraphActions)
 const result = await client.getDecodedName({
-  name: '[5cee339e13375638553bdf5a6e36ba80fb9f6a4f0783680884d92b558aa471da].eth',
+  name: '[5cee339e13375638553bdf5a6e36ba80fb9f6a4f0783680884d92b558aa471da].son',
 })
-// ens.eth
+// sns.son
 ```
 
 #### Parameters
@@ -264,14 +264,14 @@ Gets the expiry for a name
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensPublicActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensPublicActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensPublicActions)
-const result = await client.getExpiry({ name: 'ens.eth' })
+const result = await client.getExpiry({ name: 'sns.son' })
 // { expiry: { date: Date, value: 1913933217n }, gracePeriod: 7776000, status: 'active' }
 ```
 
@@ -297,17 +297,17 @@ Gets the primary name for an address
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensPublicActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensPublicActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensPublicActions)
 const result = await client.getName({
   address: '0xb8c2C29ee19D8307cb7255e1Cd9CbDE883A267d5',
 })
-// { name: 'nick.eth', match: true, reverseResolverAddress: '0xa2c122be93b0074270ebee7f6b7292c7deb45047', resolverAddress: '0x4976fb03c32e5b8cfe2b6ccb31c09ba78ebaba41' }
+// { name: 'nick.son', match: true, reverseResolverAddress: '0xa2c122be93b0074270ebee7f6b7292c7deb45047', resolverAddress: '0x4976fb03c32e5b8cfe2b6ccb31c09ba78ebaba41' }
 ```
 
 #### Parameters
@@ -332,14 +332,14 @@ Gets the history of a name from the subgraph.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensSubgraphActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensSubgraphActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensSubgraphActions)
-const result = await client.getNameHistory({ name: 'ens.eth' })
+const result = await client.getNameHistory({ name: 'sns.son' })
 ```
 
 #### Parameters
@@ -364,11 +364,11 @@ Gets the names for an address from the subgraph.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensSubgraphActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensSubgraphActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensSubgraphActions)
 const result = await client.getNamesForAddress({
@@ -398,14 +398,14 @@ Gets the owner(s) of a name.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensPublicActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensPublicActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensPublicActions)
-const result = await client.getOwner({ name: 'ens.eth' })
+const result = await client.getOwner({ name: 'sns.son' })
 // { owner: '0xb6E040C9ECAaE172a89bD561c5F73e1C48d28cd9', registrant: '0xb6E040C9ECAaE172a89bD561c5F73e1C48d28cd9', ownershipLevel: 'registrar }
 ```
 
@@ -431,14 +431,14 @@ Gets the price of a name, or array of names, for a given duration.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensPublicActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensPublicActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensPublicActions)
-const result = await client.getPrice({ nameOrNames: 'ens.eth' })
+const result = await client.getPrice({ nameOrNames: 'sns.son' })
 // { base: 352828971668930335n, premium: 0n }
 ```
 
@@ -464,15 +464,15 @@ Gets arbitrary records for a name
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensPublicActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensPublicActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensPublicActions)
 const result = await client.getRecords({
-  name: 'ens.eth',
+  name: 'sns.son',
   records: {
     texts: ['com.twitter', 'com.github'],
     coins: ['ETH'],
@@ -504,14 +504,14 @@ Gets the resolver address for a name.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensPublicActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensPublicActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensPublicActions)
-const result = await client.getResolver({ name: 'ens.eth' })
+const result = await client.getResolver({ name: 'sns.son' })
 // 0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41
 ```
 
@@ -537,14 +537,14 @@ Gets the records for a name from the subgraph
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensSubgraphActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensSubgraphActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensSubgraphActions)
-const result = await client.getSubgraphRecords({ name: 'ens.eth' })
+const result = await client.getSubgraphRecords({ name: 'sns.son' })
 // {
 //   isMigrated: true,
 //   createdAt: { date: 2019-08-26T05:09:01.000Z, value: 1566796141000 },
@@ -575,14 +575,14 @@ Gets the name registrant from the subgraph.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensSubgraphActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensSubgraphActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensSubgraphActions)
-const result = await client.getSubgraphRegistrant({ name: 'ens.eth' })
+const result = await client.getSubgraphRegistrant({ name: 'sns.son' })
 // 0xb6E040C9ECAaE172a89bD561c5F73e1C48d28cd9
 ```
 
@@ -608,14 +608,14 @@ Gets the subnames for a name from the subgraph.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensSubgraphActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensSubgraphActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensSubgraphActions)
-const result = await client.getSubnames({ name: 'ens.eth' })
+const result = await client.getSubnames({ name: 'sns.son' })
 ```
 
 #### Parameters
@@ -640,15 +640,15 @@ Gets a text record for a name.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensPublicActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensPublicActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensPublicActions)
 const result = await client.getTextRecord({
-  name: 'ens.eth',
+  name: 'sns.son',
   key: 'com.twitter',
 })
 // ensdomains
@@ -676,14 +676,14 @@ Gets the wrapper data for a name.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensPublicActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensPublicActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensPublicActions)
-const result = await client.getWrapperData({ name: 'ilikelasagna.eth' })
+const result = await client.getWrapperData({ name: 'ilikelasagna.son' })
 ```
 
 #### Parameters
@@ -708,15 +708,15 @@ Gets the full name for a name with unknown labels from the NameWrapper.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensPublicActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensPublicActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensPublicActions)
 const result = await client.getWrapperName({
-  name: '[4ca938ec1b323ca71c4fb47a712abb68cce1cabf39ea4d6789e42fbc1f95459b].eth',
+  name: '[4ca938ec1b323ca71c4fb47a712abb68cce1cabf39ea4d6789e42fbc1f95459b].son',
 })
 // wrapped.eth
 ```

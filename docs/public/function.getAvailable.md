@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,15 +14,15 @@ Gets the availability of a name to register
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getAvailable } from '@ensdomains/ensjs/public'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getAvailable } from '@soneium-domains/js/public'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
-const result = await getAvailable(client, { name: 'ens.eth' })
+const result = await getAvailable(client, { name: 'sns.son' })
 // false
 ```
 
@@ -51,15 +51,15 @@ Gets the availability of a name to register
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getAvailable } from '@ensdomains/ensjs/public'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getAvailable } from '@soneium-domains/js/public'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
-const result = await getAvailable(client, { name: 'ens.eth' })
+const result = await getAvailable(client, { name: 'sns.son' })
 // false
 ```
 

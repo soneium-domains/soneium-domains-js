@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,16 +14,16 @@ Gets the price of a name, or array of names, for a given duration.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getPrice } from '@ensdomains/ensjs/public'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getPrice } from '@soneium-domains/js/public'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
 const result = await getPrice(client, {
-  nameOrNames: 'ens.eth',
+  nameOrNames: 'sns.son',
   duration: 31536000,
 })
 // { base: 352828971668930335n, premium: 0n }
@@ -54,16 +54,16 @@ Gets the price of a name, or array of names, for a given duration.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getPrice } from '@ensdomains/ensjs/public'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getPrice } from '@soneium-domains/js/public'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
 const result = await getPrice(client, {
-  nameOrNames: 'ens.eth',
+  nameOrNames: 'sns.son',
   duration: 31536000,
 })
 // { base: 352828971668930335n, premium: 0n }

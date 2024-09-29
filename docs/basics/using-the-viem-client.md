@@ -5,14 +5,14 @@ Just wrap the viem `Chain` in the `addEnsContracts()` function, which adds all t
 
 ```ts
 import { http, createClient } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getAddressRecord } from '@ensdomains/ensjs/public'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getAddressRecord } from '@soneium-domains/js/public'
 
 const client = createClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
 
-const ethAddress = getAddressRecord(client, { name: 'ens.eth' })
+const ethAddress = getAddressRecord(client, { name: 'sns.son' })
 ```

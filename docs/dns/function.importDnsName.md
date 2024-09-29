@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,17 +14,17 @@ Creates a transaction to import a DNS name to ENS.
 
 ```ts
 import { createPublicClient, createWalletClient, http, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getDnsImportData, importDnsName } from '@ensdomains/ensjs/dns'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getDnsImportData, importDnsName } from '@soneium-domains/js/dns'
 
-const mainnetWithEns = addEnsContracts(mainnet)
+const soneiumMinatoWithEns = addEnsContracts(soneiumMinato)
 const client = createPublicClient({
-  chain: mainnetWithEns,
+  chain: soneiumMinatoWithEns,
   transport: http(),
 })
 const wallet = createWalletClient({
-  chain: mainnetWithEns,
+  chain: soneiumMinatoWithEns,
   transport: custom(window.ethereum),
 })
 const dnsImportData = await getDnsImportData(client, {

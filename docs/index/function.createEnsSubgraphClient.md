@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,11 +14,11 @@ Creates a ENS Subgraph Client with a given [Transport](https://viem.sh/docs/clie
 
 ```ts
 import { http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { createEnsSubgraphClient } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { createEnsSubgraphClient } from '@soneium-domains/js'
 
 const client = createEnsSubgraphClient({
-  chain: mainnet,
+  chain: soneiumMinato,
   transport: http(),
 })
 ```
@@ -50,17 +50,17 @@ Gets the full name for a name with unknown labels from the subgraph.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensSubgraphActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensSubgraphActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensSubgraphActions)
 const result = await client.getDecodedName({
-  name: '[5cee339e13375638553bdf5a6e36ba80fb9f6a4f0783680884d92b558aa471da].eth',
+  name: '[5cee339e13375638553bdf5a6e36ba80fb9f6a4f0783680884d92b558aa471da].son',
 })
-// ens.eth
+// sns.son
 ```
 
 #### Parameters
@@ -85,14 +85,14 @@ Gets the history of a name from the subgraph.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensSubgraphActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensSubgraphActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensSubgraphActions)
-const result = await client.getNameHistory({ name: 'ens.eth' })
+const result = await client.getNameHistory({ name: 'sns.son' })
 ```
 
 #### Parameters
@@ -117,11 +117,11 @@ Gets the names for an address from the subgraph.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensSubgraphActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensSubgraphActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensSubgraphActions)
 const result = await client.getNamesForAddress({
@@ -151,14 +151,14 @@ Gets the records for a name from the subgraph
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensSubgraphActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensSubgraphActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensSubgraphActions)
-const result = await client.getSubgraphRecords({ name: 'ens.eth' })
+const result = await client.getSubgraphRecords({ name: 'sns.son' })
 // {
 //   isMigrated: true,
 //   createdAt: { date: 2019-08-26T05:09:01.000Z, value: 1566796141000 },
@@ -189,14 +189,14 @@ Gets the name registrant from the subgraph.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensSubgraphActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensSubgraphActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensSubgraphActions)
-const result = await client.getSubgraphRegistrant({ name: 'ens.eth' })
+const result = await client.getSubgraphRegistrant({ name: 'sns.son' })
 // 0xb6E040C9ECAaE172a89bD561c5F73e1C48d28cd9
 ```
 
@@ -222,14 +222,14 @@ Gets the subnames for a name from the subgraph.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts, ensSubgraphActions } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts, ensSubgraphActions } from '@soneium-domains/js'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 }).extend(ensSubgraphActions)
-const result = await client.getSubnames({ name: 'ens.eth' })
+const result = await client.getSubnames({ name: 'sns.son' })
 ```
 
 #### Parameters

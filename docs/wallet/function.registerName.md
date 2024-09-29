@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,24 +14,24 @@ Registers a name on ENS
 
 ```ts
 import { createPublicClient, createWalletClient, http, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getPrice } from '@ensdomains/ensjs/public'
-import { randomSecret } from '@ensdomains/ensjs/utils'
-import { commitName, registerName } from '@ensdomains/ensjs/wallet'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getPrice } from '@soneium-domains/js/public'
+import { randomSecret } from '@soneium-domains/js/utils'
+import { commitName, registerName } from '@soneium-domains/js/wallet'
 
-const mainnetWithEns = addEnsContracts(mainnet)
+const soneiumMinatoWithEns = addEnsContracts(soneiumMinato)
 const client = createPublicClient({
-  chain: mainnetWithEns,
+  chain: soneiumMinatoWithEns,
   transport: http(),
 })
 const wallet = createWalletClient({
-  chain: mainnetWithEns,
+  chain: soneiumMinatoWithEns,
   transport: custom(window.ethereum),
 })
 const secret = randomSecret()
 const params = {
-  name: 'example.eth',
+  name: 'example.son',
   owner: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7',
   duration: 31536000, // 1 year
   secret,

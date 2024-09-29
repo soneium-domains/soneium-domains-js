@@ -5,18 +5,18 @@ When using subgraph data, it's also recommended to provide fallback records for 
 
 ```ts
 import { http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { createEnsPublicClient } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { createEnsPublicClient } from '@soneium-domains/js'
 
 const client = createEnsPublicClient({
-  chain: mainnet,
+  chain: soneiumMinato,
   transport: http(),
 })
 
-const subgraphRecords = client.getSubgraphRecords({ name: 'ens.eth' })
+const subgraphRecords = client.getSubgraphRecords({ name: 'sns.son' })
 
 const records = client.getRecords({
-  name: 'ens.eth',
+  name: 'sns.son',
   records: {
     coins: [...(subgraphRecords?.coins || []), 'BTC', 'ETH', 'ETC', 'SOL'],
     texts: [

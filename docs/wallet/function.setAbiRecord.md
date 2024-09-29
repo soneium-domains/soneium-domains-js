@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -15,19 +15,19 @@ Sets the ABI for a name on a resolver.
 ```ts
 import abi from './abi.json'
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { encodeAbi } from '@ensdomains/ensjs/utils'
-import { setAbiRecord } from '@ensdomains/ensjs/wallet'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { encodeAbi } from '@soneium-domains/js/utils'
+import { setAbiRecord } from '@soneium-domains/js/wallet'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 })
 
 const encodedAbi = await encodeAbi({ encodeAs: 'json', abi })
 const hash = await setAbiRecord(wallet, {
-  name: 'ens.eth',
+  name: 'sns.son',
   encodedAbi,
   resolverAddress: '0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41',
 })

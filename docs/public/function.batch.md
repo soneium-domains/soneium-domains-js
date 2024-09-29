@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,22 +14,22 @@ Batches multiple read functions into a single call.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
 import {
   batch,
   getTextRecord,
   getAddressRecord,
-} from '@ensdomains/ensjs/public'
+} from '@soneium-domains/js/public'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
 const result = await batch(
   client,
-  getTextRecord.batch({ name: 'ens.eth', key: 'com.twitter' }),
-  getAddressRecord.batch({ name: 'ens.eth', coin: 'ETH' }),
+  getTextRecord.batch({ name: 'sns.son', key: 'com.twitter' }),
+  getAddressRecord.batch({ name: 'sns.son', coin: 'ETH' }),
 )
 // ['ensdomains', { id: 60, name: 'ETH', value: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7 }]
 ```
@@ -65,22 +65,22 @@ Batches multiple read functions into a single call.
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
 import {
   batch,
   getTextRecord,
   getAddressRecord,
-} from '@ensdomains/ensjs/public'
+} from '@soneium-domains/js/public'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
 const result = await batch(
   client,
-  getTextRecord.batch({ name: 'ens.eth', key: 'com.twitter' }),
-  getAddressRecord.batch({ name: 'ens.eth', coin: 'ETH' }),
+  getTextRecord.batch({ name: 'sns.son', key: 'com.twitter' }),
+  getAddressRecord.batch({ name: 'sns.son', coin: 'ETH' }),
 )
 // ['ensdomains', { id: 60, name: 'ETH', value: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7 }]
 ```

@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,18 +14,18 @@ Commits a name to be registered
 
 ```ts
 import { createWalletClient, custom } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { commitName } from '@ensdomains/ensjs/wallet'
-import { randomSecret } from '@ensdomains/ensjs/utils'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { commitName } from '@soneium-domains/js/wallet'
+import { randomSecret } from '@soneium-domains/js/utils'
 
 const wallet = createWalletClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: custom(window.ethereum),
 })
 const secret = randomSecret()
 const hash = await commitName(wallet, {
-  name: 'example.eth',
+  name: 'example.son',
   owner: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7',
   duration: 31536000, // 1 year
   secret,

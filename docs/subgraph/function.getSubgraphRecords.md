@@ -1,4 +1,4 @@
-[**@ensdomains/ensjs**](../README.md)
+[**@soneium-domains/js**](../README.md)
 
 ---
 
@@ -14,15 +14,15 @@ Gets the records for a name from the subgraph
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
-import { addEnsContracts } from '@ensdomains/ensjs'
-import { getSubgraphRecords } from '@ensdomains/ensjs/subgraph'
+import { soneiumMinato } from 'viem/chains'
+import { addEnsContracts } from '@soneium-domains/js'
+import { getSubgraphRecords } from '@soneium-domains/js/subgraph'
 
 const client = createPublicClient({
-  chain: addEnsContracts(mainnet),
+  chain: addEnsContracts(soneiumMinato),
   transport: http(),
 })
-const result = await getSubgraphRecords(client, { name: 'ens.eth' })
+const result = await getSubgraphRecords(client, { name: 'sns.son' })
 // {
 //   isMigrated: true,
 //   createdAt: { date: 2019-08-26T05:09:01.000Z, value: 1566796141000 },
