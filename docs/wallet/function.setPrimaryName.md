@@ -51,7 +51,7 @@ Transaction hash. SetPrimaryNameReturnType
 
 ## Source
 
-[packages/ensjs/src/functions/wallet/setPrimaryName.ts:126](https://github.com/ensdomains/ensjs-v3/blob/1b90b888/packages/ensjs/src/functions/wallet/setPrimaryName.ts#L126)
+[src/functions/wallet/setPrimaryName.ts:126](https://github.com/soneium-domains/soneium-domains-js/tree/main/src/functions/wallet/setPrimaryName.ts#L126)
 
 ---
 

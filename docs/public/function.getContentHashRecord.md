@@ -42,7 +42,7 @@ Content hash object, or `null` if not found. GetContentHashRecordReturnType
 
 ## Source
 
-[packages/ensjs/src/functions/public/getContentHashRecord.ts:62](https://github.com/ensdomains/ensjs-v3/blob/1b90b888/packages/ensjs/src/functions/public/getContentHashRecord.ts#L62)
+[src/functions/public/getContentHashRecord.ts:62](https://github.com/soneium-domains/soneium-domains-js/tree/main/src/functions/public/getContentHashRecord.ts#L62)
 
 ---
 

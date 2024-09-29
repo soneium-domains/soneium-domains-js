@@ -82,7 +82,7 @@ Transaction hash. RegisterNameReturnType
 
 ## Source
 
-[packages/ensjs/src/functions/wallet/registerName.ts:116](https://github.com/ensdomains/ensjs-v3/blob/1b90b888/packages/ensjs/src/functions/wallet/registerName.ts#L116)
+[src/functions/wallet/registerName.ts:116](https://github.com/soneium-domains/soneium-domains-js/tree/main/src/functions/wallet/registerName.ts#L116)
 
 ---
 

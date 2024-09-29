@@ -64,7 +64,7 @@ Transaction hash. CommitNameReturnType
 
 ## Source
 
-[packages/ensjs/src/functions/wallet/commitName.ts:94](https://github.com/ensdomains/ensjs-v3/blob/1b90b888/packages/ensjs/src/functions/wallet/commitName.ts#L94)
+[src/functions/wallet/commitName.ts:94](https://github.com/soneium-domains/soneium-domains-js/tree/main/src/functions/wallet/commitName.ts#L94)
 
 ---
 

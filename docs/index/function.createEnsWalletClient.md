@@ -775,7 +775,7 @@ Transaction hash. WrapNameReturnType
 
 ## Source
 
-[packages/ensjs/src/clients/wallet.ts:62](https://github.com/ensdomains/ensjs-v3/blob/1b90b888/packages/ensjs/src/clients/wallet.ts#L62)
+[src/clients/wallet.ts:62](https://github.com/soneium-domains/soneium-domains-js/tree/main/src/clients/wallet.ts#L62)
 
 ---
 

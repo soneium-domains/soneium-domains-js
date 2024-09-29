@@ -1,6 +1,6 @@
 # Using the Viem Client
 
-If you're only using parts of ENSjs, or want to control exactly what functions are being imported, you can use ENSjs methods with the viem `Client`.
+If you're only using parts of soneium domains js sdk, or want to control exactly what functions are being imported, you can use soneium domains js sdk methods with the viem `Client`.
 Just wrap the viem `Chain` in the `addEnsContracts()` function, which adds all the required addresses to the chain.
 
 ```ts

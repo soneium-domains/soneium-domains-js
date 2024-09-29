@@ -44,7 +44,7 @@ Price data object. GetPriceReturnType
 
 ## Source
 
-[packages/ensjs/src/functions/public/getPrice.ts:142](https://github.com/ensdomains/ensjs-v3/blob/1b90b888/packages/ensjs/src/functions/public/getPrice.ts#L142)
+[src/functions/public/getPrice.ts:142](https://github.com/soneium-domains/soneium-domains-js/tree/main/src/functions/public/getPrice.ts#L142)
 
 > **getPrice**(`client`, ...`args`): `Promise`\< `null` \| `GetPriceReturnType` \>
 
@@ -84,7 +84,7 @@ Price data object. GetPriceReturnType
 
 ## Source
 
-[packages/ensjs/src/utils/generateFunction.ts:41](https://github.com/ensdomains/ensjs-v3/blob/1b90b888/packages/ensjs/src/utils/generateFunction.ts#L41)
+[src/utils/generateFunction.ts:41](https://github.com/soneium-domains/soneium-domains-js/tree/main/src/utils/generateFunction.ts#L41)
 
 ---
 

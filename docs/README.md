@@ -1,4 +1,4 @@
-# ENSjs Documentation
+# @soneium-domains/js Documentation
 
 ## Sections
 

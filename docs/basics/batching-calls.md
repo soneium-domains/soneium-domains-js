@@ -1,6 +1,6 @@
 # Batching Calls
 
-Batching is built-in to viem for most situations, but ENSjs also has native batching if you want to be sure that calls are batched.
+Batching is built-in to viem for most situations, but soneium domains js sdk also has native batching if you want to be sure that calls are batched.
 Only public methods support call batching at this point. On the `EnsPublicClient`, batching can be accessed via `ensBatch` to avoid
 colliding with viem's native batching. If using batch outside of the client though, it can be accessed with `batch`.
 

@@ -55,7 +55,7 @@ Array of return values from each function
 
 ## Source
 
-[packages/ensjs/src/functions/public/batch.ts:95](https://github.com/ensdomains/ensjs-v3/blob/1b90b888/packages/ensjs/src/functions/public/batch.ts#L95)
+[src/functions/public/batch.ts:95](https://github.com/soneium-domains/soneium-domains-js/tree/main/src/functions/public/batch.ts#L95)
 
 > **batch**(`client`, ...`args`): `Promise`\< `null` \| `any`[] \>
 
@@ -100,7 +100,7 @@ Array of return values from each function
 
 ## Source
 
-[packages/ensjs/src/utils/generateFunction.ts:41](https://github.com/ensdomains/ensjs-v3/blob/1b90b888/packages/ensjs/src/utils/generateFunction.ts#L41)
+[src/utils/generateFunction.ts:41](https://github.com/soneium-domains/soneium-domains-js/tree/main/src/utils/generateFunction.ts#L41)
 
 ---
 

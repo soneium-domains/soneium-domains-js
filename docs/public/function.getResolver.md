@@ -41,7 +41,7 @@ Resolver address, or null if none is found. GetResolverReturnType
 
 ## Source
 
-[packages/ensjs/src/functions/public/getResolver.ts:95](https://github.com/ensdomains/ensjs-v3/blob/1b90b888/packages/ensjs/src/functions/public/getResolver.ts#L95)
+[src/functions/public/getResolver.ts:95](https://github.com/soneium-domains/soneium-domains-js/tree/main/src/functions/public/getResolver.ts#L95)
 
 ---
 
