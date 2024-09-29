@@ -33,33 +33,12 @@ as well as all subgraph functions.
 ```ts
 // Import viem transport, viem chain, and @soneium-domains/js
 import { http } from 'viem'
-//import { minato } from 'viem/chains'
+import { soneiumMinato } from 'viem/chains'
 import { createEnsPublicClient } from '@soneium-domains/js'
-
-const minato = {
-  id: 1946,
-  chainId : 1946,
-  name: "Soneium Minato",
-  rpcUrls: { default : { http : ['https://rpc.minato.soneium.org/']}},
-  rpc: 'https://rpc.minato.soneium.org/',
-  nativeCurrency: {
-    name: "Minato Ether",
-    symbol: "ETH",
-    decimals: 18,
-  },
-  blockExplorers: [
-    {
-      name: "Minato Explorer",
-      url: "https://explorer-testnet.soneium.org/",
-      apiUrl: "https://explorer-testnet.soneium.org/api",
-    },
-  ],
-  testnet: true,
-};
 
 // Create the client
 const client = createEnsPublicClient({
-  chain: minato,
+  chain: soneiumMinato,
   transport: http(),
 })
 
@@ -67,6 +46,8 @@ const client = createEnsPublicClient({
 const ethAddress = client.getAddressRecord({ name: 'sam.son' })
 ```
 
-## Docs
+[JS Docs](https://github.com/soneium-domains/soneium-domains-js/tree/main/docs#soneium-domainsjs-documentation)
+
+## Full Docs
 
 Full docs site coming soon.
